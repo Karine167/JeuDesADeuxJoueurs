@@ -7,6 +7,7 @@ const afficheScoreTempo = (idtempo,tempo)=>{
   const pTot = document.getElementById(idtempo);
   pTot.textContent = tempo;
 }
+// Définition des fonctions d'affichage des messages
 const afficheIndicatorMessage = (idIndic)=>{
   const indicator = document.getElementById(idIndic);
   indicator.textContent = "You have to play";
@@ -21,15 +22,9 @@ class Player{
     this.tempo = 0; // initial current sold 
     this.total = 0; // initial total game
     this.mustPlay = play; //boolean
-    if (nb==1){
-      this.idtempo="tempo1";
-      this.idtotal="total1";
-      this.indicator="indicator1";
-    } else {
-      this.idtempo="tempo2";
-      this.idtotal="total2";
-      this.indicator="indicator2";
-    }
+    this.idtempo=`tempo${nb}`;
+    this.idtotal=`total${nb}`;
+    this.indicator=`indicator${nb}`;
   }
   afficheTotal(){
     afficheScoreTotal(this.idtotal,this.total);
