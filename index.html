@@ -7,9 +7,30 @@
   <title>Jeu de dé</title>
 </head>
 <body>
-  <div>Joueur 1</div>
-  <div>centre</div>
-  <div>Joueur 2</div>
+  <div class="Joueur1">
+    <h2>PLAYER 1 </h2>
+    <span class="indicator1">O</span>
+    <p class="total">4</p>
+    <div class="temp">
+      <p>Current</p>
+      <p class="tempo1">10</p>
+    </div>
+  </div>
+  <div class="control">
+    <button type="button" id="NewGame">New Game</button>
+    <p id="de">3</p>
+    <button type="button" id="RollDice">Roll Dice</button>
+    <button type="button" id="Hold">Hold</button>
+  </div>
+  <div class="Joueur2">
+    <h2>PLAYER 2 </h2>
+    <span class="indicator2">O</span>
+    <p class="total">10</p>
+    <div class="temp">
+      <p>Current</p>
+      <p class="tempo1">10</p>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

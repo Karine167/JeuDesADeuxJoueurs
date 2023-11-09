@@ -1,1 +1,1 @@
-alert("je suis le fichier script");
+// jeu de dé 

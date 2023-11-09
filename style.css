@@ -1,3 +1,67 @@
 body{
   background: gainsboro;
+  display: inline-flex;
+  border: 10px solid brown;
+  padding: 5%;
+  margin: 0; 
+  height: auto;
+  font-size: 1em;
+}
+.total{
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.Joueur1{
+  width: 35vw;
+  margin-top: 5%;
+  text-align: center;
+  padding : 2%;
+}
+.indicator1{
+  font-weight: bold;
+  color:red;
+  display: block;
+  text-align: right;
+}
+.Joueur2{
+  width: 35vw;
+  margin-top: 5%;
+  padding : 2%;
+  text-align: center;
+}
+.indicator2{
+  font-weight: bold;
+  color:blue;
+  display: block;
+  text-align: left;
+}
+.temp{
+  width:20vw;
+  background: burlywood;
+  text-align: center;
+  margin-left: 5vw;
+  padding: 2%;
+  margin-top: 10vh;
+}
+.control{
+  width: 15vw; 
+  display:block;
+  justify-content: center;
+}
+button{
+  background: rgb(190, 190, 238);
+  border-radius: 10%;
+  margin: 10%
+}
+#de{
+  width: 6vw;
+  height: 6vw;
+  padding: 10%;
+  border: 10px solid blue;
+  border-radius: 20%;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
