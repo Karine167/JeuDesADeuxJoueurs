@@ -7,7 +7,7 @@ body{
   height: auto;
   font-size: 1em;
 }
-.total{
+#total1, #total2{
   font-weight: 700;
   font-size: 2em;
 }
@@ -18,7 +18,7 @@ body{
   text-align: center;
   padding : 2%;
 }
-.indicator1{
+#indicator1{
   font-weight: bold;
   color:red;
   display: block;
@@ -30,7 +30,7 @@ body{
   padding : 2%;
   text-align: center;
 }
-.indicator2{
+#indicator2{
   font-weight: bold;
   color:blue;
   display: block;
