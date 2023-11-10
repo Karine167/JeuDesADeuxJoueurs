@@ -114,7 +114,6 @@ newGame.addEventListener('click', ()=>{
   initialTempo();
   initialTotal();
   affichePlayer();
-  gameTour();
 });
 
 //show who play
@@ -145,3 +144,4 @@ const afficheWinner = () => {
     }
   }  
 };
+gameTour();
