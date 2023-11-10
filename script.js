@@ -46,7 +46,6 @@ class Player{
 // Init game
 let player1 = new Player(1,true);
 let player2 = new Player(2,false);
-let playergame = player1;
 let resultDe = new Number();
 
 //Intit tempo
@@ -55,7 +54,6 @@ const initialTempo = ()=>{
   player1.afficheTempo();
   player2.tempo = 0;
   player2.afficheTempo();
-  playergame.tempo = 0;
 }
 
 //Intit total
@@ -68,33 +66,44 @@ const initialTotal = ()=>{
 
 // change player
 const changePlayer = ()=>{
-  if (playergame === player1) {
-    playergame = player2;
+  if (player1.mustPlay) {
+    player1.mustPlay = false;
+    player2.mustPlay = true;
   }else{
-    playergame = player1;
+    player2.mustPlay = false;
+    player1.mustPlay = true;
   }
 }
 // Création d'une fonction pour gérer un tour de jeu
-const gameTour = (playergame)=>{
+const gameTour = ()=>{
     rollDice.addEventListener('click', ()=>{
       resultDe = Math.floor(Math.random() * 6)+1;
       afficheDe(resultDe);
       if (resultDe === 1) {
         changePlayer();
         initialTempo();
-        affichePlayer(playergame);
+        affichePlayer();
       }else{
-        playergame.tempo += resultDe;
-        resultDe = 0;
-        playergame.afficheTempo();
+        if (player1.mustPlay){
+          player1.tempo += resultDe;
+          player1.afficheTempo();
+        }else{
+          player2.tempo += resultDe;
+          player2.afficheTempo();
+        }
       }
     });
     hold.addEventListener('click', ()=>{
-      playergame.total += playergame.tempo;
-      playergame.afficheTotal();
+      if (player1.mustPlay){
+        player1.total += player1.tempo;
+        player1.afficheTotal();
+      } else {
+        player2.total += player2.tempo;
+        player2.afficheTotal();
+      }
       initialTempo();
       changePlayer();
-      afficheWinner(playergame);
+      afficheWinner();
     });
 } 
 // begin new game
@@ -102,23 +111,23 @@ newGame.addEventListener('click', ()=>{
   // Init game
   initialTempo();
   initialTotal();
-  affichePlayer(player1);
+  affichePlayer();
 });
 
 //show who play
-const affichePlayer = (playergame) => {
-  if (playergame === player1){
+const affichePlayer = () => {
+  if (player1.mustPlay){
     player1.afficheMessage("You have to play");
     player2.effaceMessage();
-    gameTour(player1);
+    gameTour();
   }else{
     player2.afficheMessage("You have to play");
     player1.effaceMessage();
-    gameTour(player2);
+    gameTour();
   }
 }
 //show who win
-const afficheWinner = (playergame) => {
+const afficheWinner = () => {
   if (player1.total>=100){
     player1.afficheMessage("You Won !! Congratulations !");
     player2.afficheMessage("You lose !! Sorry !");
@@ -126,7 +135,9 @@ const afficheWinner = (playergame) => {
     if (player2.total>=100){
     player2.afficheMessage("You Won !! Congratulations !");
     player1.afficheMessage("You lose !! Sorry !");
+    } else {
+      affichePlayer();
     }
-  }
-  affichePlayer(playergame); 
+  } 
+  
 };
