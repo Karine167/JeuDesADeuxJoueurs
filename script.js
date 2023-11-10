@@ -1,107 +1,132 @@
-// Définition des fonctions d'affichage des scores
-const afficheScoreTotal = (idtotal,total)=>{
-  const pTot = document.getElementById(idtotal);
-  pTot.textContent = total;
+// DOM elements
+const rollDice = document.getElementById('rollDice');
+const hold = document.getElementById('hold');
+const newGame = document.getElementById('newGame');
+const de = document.getElementById('de');
+const indicator1 = document.getElementById('indicator1');
+const indicator2 = document.getElementById('indicator2');
+const total1 = document.getElementById('total1');
+const total2 = document.getElementById('total2');
+const tempo1 = document.getElementById('tempo1');
+const tempo2 = document.getElementById('tempo2');
+// Dice Show
+const afficheDe = (result)=>{
+  de.textContent = result;
 }
-const afficheScoreTempo = (idtempo,tempo)=>{
-  const pTot = document.getElementById(idtempo);
-  pTot.textContent = tempo;
-}
-// Définition des fonctions d'affichage des messages
-const afficheIndicatorMessage = (idIndic, message)=>{
-  const indicator = document.getElementById(idIndic);
-  indicator.textContent = message;
-}
-const effaceIndicatorMessage = (idIndic)=>{
-  const indicator = document.getElementById(idIndic);
-  indicator.textContent = "O";
-}
-// Classe Joueur
+
+// Class Player
 class Player{
   constructor (nb,play){
     this.tempo = 0; // initial current sold 
     this.total = 0; // initial total game
     this.mustPlay = play; //boolean
-    this.idtempo=`tempo${nb}`;
-    this.idtotal=`total${nb}`;
-    this.indicator=`indicator${nb}`;
+    if (nb==1){
+      this.idtempo=tempo1;
+      this.idtotal=total1;
+      this.indicator=indicator1;
+    }else {
+      this.idtempo=tempo2;
+      this.idtotal=total2;
+      this.indicator=indicator2;
+    }
   }
   afficheTotal(){
-    afficheScoreTotal(this.idtotal,this.total);
+    this.idtotal.textContent= this.total;
   }
   afficheTempo(){
-    afficheScoreTempo(this.idtempo,this.tempo);
+    this.idtempo.textContent = this.tempo;
   }
   afficheMessage(message){
-    afficheIndicatorMessage(this.indicator, message);
+    this.indicator.textContent = message;
   }
   effaceMessage(){
-    effaceIndicatorMessage(this.indicator);
+    this.indicator.textContent = "O";
+  }
+}
+// Init game
+let player1 = new Player(1,true);
+let player2 = new Player(2,false);
+let playergame = player1;
+let resultDe = new Number();
+
+//Intit tempo
+const initialTempo = ()=>{
+  player1.tempo = 0;
+  player1.afficheTempo();
+  player2.tempo = 0;
+  player2.afficheTempo();
+  playergame.tempo = 0;
+}
+
+//Intit total
+const initialTotal = ()=>{
+  player1.total = 0;
+  player1.afficheTotal();
+  player2.total = 0;
+  player2.afficheTotal();
+}
+
+// change player
+const changePlayer = ()=>{
+  if (playergame === player1) {
+    playergame = player2;
+  }else{
+    playergame = player1;
   }
 }
 // Création d'une fonction pour gérer un tour de jeu
-const gameTour = (playergame, otherplayer)=>{
-  const rollDice = document.getElementById('rollDice');
-  const hold = document.getElementById('hold');
+const gameTour = (playergame)=>{
     rollDice.addEventListener('click', ()=>{
-      let resultDe = Math.floor(Math.random() * 6)+1;
-      const de = document.getElementById('de');
-      de.textContent = resultDe;
-      if (resultDe == 1) {
-        playergame.tempo = 0;
-        playergame.afficheTempo();
-        playergame.mustPlay = false;
-        otherplayer.mustPlay = true;
-        rollDice.removeEventListener('click');
-        otherplayer.afficheMessage("You have to play");
-        playergame.effaceMessage();
-        gameTour(otherplayer,playergame);
+      resultDe = Math.floor(Math.random() * 6)+1;
+      afficheDe(resultDe);
+      if (resultDe === 1) {
+        changePlayer();
+        initialTempo();
+        affichePlayer(playergame);
       }else{
         playergame.tempo += resultDe;
+        resultDe = 0;
         playergame.afficheTempo();
       }
     });
     hold.addEventListener('click', ()=>{
       playergame.total += playergame.tempo;
-      playergame.tempo = 0;
-      playergame.afficheTempo();
       playergame.afficheTotal();
-      playergame.mustPlay = false;
-      otherplayer.mustPlay = true;
-      hold.removeEventListener('click');
-      otherplayer.afficheMessage("You have to play");
-      playergame.effaceMessage();
-      gameTour(otherplayer,playergame);
+      initialTempo();
+      changePlayer();
+      afficheWinner(playergame);
     });
 } 
-// création d'un écouteur d'événement sur le bouton newgame
-const newGame = document.getElementById('newGame');
+// begin new game
 newGame.addEventListener('click', ()=>{
-  // Initialisation du jeu
-  let player1 = new Player(1,true);
-  player1.afficheTotal();
-  player1.afficheTempo();
-  let player2 = new Player(2,false);
-  player2.afficheTotal();
-  player2.afficheTempo();
-  //while (player1.total<100 && player2.total<100){
-    if (player1.mustPlay){
-      player1.afficheMessage("You have to play");
-      player2.effaceMessage();
-      gameTour(player1,player2);
-    }else{
-      player2.afficheMessage("You have to play");
-      player1.effaceMessage();
-      gameTour(player2,player1)
-    }
-  //}
-  /* if (player1.total>=100){
-    player1.afficheMessage('You Won !! Congratualtions !');
-    player2.afficheMessage('You lose !! Sorry !');
-  }else{
-    player2.afficheMessage('You Won !! Congratualtions !');
-    player1.afficheMessage('You lose !! Sorry !');
-  }  */
+  // Init game
+  initialTempo();
+  initialTotal();
+  affichePlayer(player1);
 });
 
-
+//show who play
+const affichePlayer = (playergame) => {
+  if (playergame === player1){
+    player1.afficheMessage("You have to play");
+    player2.effaceMessage();
+    gameTour(player1);
+  }else{
+    player2.afficheMessage("You have to play");
+    player1.effaceMessage();
+    gameTour(player2);
+  }
+}
+//show who win
+const afficheWinner = (playergame) => {
+  if (player1.total>=100){
+    player1.afficheMessage("You Won !! Congratulations !");
+    player2.afficheMessage("You lose !! Sorry !");
+  }else{
+    if (player2.total>=100){
+    player2.afficheMessage("You Won !! Congratulations !");
+    player1.afficheMessage("You lose !! Sorry !");
+    }
+  }
+  affichePlayer(playergame); 
+};
