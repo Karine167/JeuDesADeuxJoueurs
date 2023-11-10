@@ -85,20 +85,22 @@ const gameTour = ()=>{
         affichePlayer();
       }else{
         if (player1.mustPlay){
-          player1.tempo += resultDe;
+          console.log(player1.tempo, resultDe)
+          player1.tempo = player1.tempo + resultDe;
+          console.log(player1.tempo);
           player1.afficheTempo();
         }else{
-          player2.tempo += resultDe;
+          player2.tempo = player2.tempo + resultDe;
           player2.afficheTempo();
         }
       }
     });
     hold.addEventListener('click', ()=>{
       if (player1.mustPlay){
-        player1.total += player1.tempo;
+        player1.total = player1.total + player1.tempo;
         player1.afficheTotal();
       } else {
-        player2.total += player2.tempo;
+        player2.total = player2.total + player2.tempo;
         player2.afficheTotal();
       }
       initialTempo();
@@ -112,6 +114,7 @@ newGame.addEventListener('click', ()=>{
   initialTempo();
   initialTotal();
   affichePlayer();
+  gameTour();
 });
 
 //show who play
@@ -119,11 +122,9 @@ const affichePlayer = () => {
   if (player1.mustPlay){
     player1.afficheMessage("You have to play");
     player2.effaceMessage();
-    gameTour();
   }else{
     player2.afficheMessage("You have to play");
     player1.effaceMessage();
-    gameTour();
   }
 }
 //show who win
@@ -131,13 +132,16 @@ const afficheWinner = () => {
   if (player1.total>=100){
     player1.afficheMessage("You Won !! Congratulations !");
     player2.afficheMessage("You lose !! Sorry !");
+    removeEventListener('click', hold);
+    removeEventListener('click', rollDice);
   }else{
     if (player2.total>=100){
     player2.afficheMessage("You Won !! Congratulations !");
     player1.afficheMessage("You lose !! Sorry !");
+    removeEventListener('click', hold);
+    removeEventListener('click', rollDice);
     } else {
       affichePlayer();
     }
-  } 
-  
+  }  
 };
