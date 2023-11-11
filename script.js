@@ -9,9 +9,113 @@ const total1 = document.getElementById('total1');
 const total2 = document.getElementById('total2');
 const tempo1 = document.getElementById('tempo1');
 const tempo2 = document.getElementById('tempo2');
+const canvas = document.getElementById('diceShow');
+const ctx = canvas.getContext('2d');
+let canvasWidth = ctx.canvas.width;
+let canvasHeight = ctx.canvas.height;
 // Dice Show
 const afficheDe = (result)=>{
-  de.textContent = result;
+  switch (result) {
+    case 1 :
+      ctx.beginPath();
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "lightblue";
+      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "blue";
+      ctx.moveTo(canvasWidth/2,canvasHeight/2);
+      ctx.arc(canvasWidth/2,canvasHeight/2, 15, 0, 2*Math.PI);
+      ctx.fill();
+      ctx.closePath();
+      break;
+    case 2 :
+      ctx.beginPath();
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "lightblue";
+      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "blue";
+      ctx.moveTo(canvasWidth/4,canvasHeight/4);
+      ctx.arc(canvasWidth/4,canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(3*canvasWidth/4,3*canvasHeight/4);
+      ctx.arc(3*canvasWidth/4,3*canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.fill();
+      ctx.closePath();
+      break;
+    case 3 :
+      ctx.beginPath();
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "lightblue";
+      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "blue";
+      ctx.moveTo(canvasWidth/2,canvasHeight/2);
+      ctx.arc(canvasWidth/2,canvasHeight/2, 15, 0, 2*Math.PI);
+      ctx.moveTo(canvasWidth/4,canvasHeight/4);
+      ctx.arc(canvasWidth/4,canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(3*canvasWidth/4,3*canvasHeight/4);
+      ctx.arc(3*canvasWidth/4,3*canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.fill();
+      ctx.closePath();
+      break;
+    case 4 :
+      ctx.beginPath();
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "lightblue";
+      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "blue";
+      ctx.moveTo(canvasWidth/4,canvasHeight/4);
+      ctx.arc(canvasWidth/4,canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(3*canvasWidth/4,3*canvasHeight/4);
+      ctx.arc(3*canvasWidth/4,3*canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(3*canvasWidth/4,canvasHeight/4);
+      ctx.arc(3*canvasWidth/4,canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(canvasWidth/4,3*canvasHeight/4);
+      ctx.arc(canvasWidth/4,3*canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.fill();
+      ctx.closePath();
+      break;
+    case 5 :
+      ctx.beginPath();
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "lightblue";
+      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "blue";
+      ctx.moveTo(canvasWidth/2,canvasHeight/2);
+      ctx.arc(canvasWidth/2,canvasHeight/2, 15, 0, 2*Math.PI);
+      ctx.moveTo(canvasWidth/4,canvasHeight/4);
+      ctx.arc(canvasWidth/4,canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(3*canvasWidth/4,3*canvasHeight/4);
+      ctx.arc(3*canvasWidth/4,3*canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(3*canvasWidth/4,canvasHeight/4);
+      ctx.arc(3*canvasWidth/4,canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(canvasWidth/4,3*canvasHeight/4);
+      ctx.arc(canvasWidth/4,3*canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.fill();
+      ctx.closePath();
+      break;
+    case 6 :
+      ctx.beginPath();
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "lightblue";
+      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+      ctx.fillStyle = "blue";
+      ctx.moveTo(canvasWidth/4,canvasHeight/2);
+      ctx.arc(canvasWidth/4,canvasHeight/2, 15, 0, 2*Math.PI);
+      ctx.moveTo(3*canvasWidth/4,canvasHeight/2);
+      ctx.arc(3*canvasWidth/4,canvasHeight/2, 15, 0, 2*Math.PI);
+      ctx.moveTo(canvasWidth/4,canvasHeight/4);
+      ctx.arc(canvasWidth/4,canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(3*canvasWidth/4,3*canvasHeight/4);
+      ctx.arc(3*canvasWidth/4,3*canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(3*canvasWidth/4,canvasHeight/4);
+      ctx.arc(3*canvasWidth/4,canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.moveTo(canvasWidth/4,3*canvasHeight/4);
+      ctx.arc(canvasWidth/4,3*canvasHeight/4, 15, 0, 2*Math.PI);
+      ctx.fill();
+      ctx.closePath();
+      break;
+    default :
+      de.textContent = result;
+      break;
+  }
 }
 
 // Class Player

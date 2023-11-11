@@ -55,13 +55,17 @@ button{
   margin: 10%
 }
 #de{
-  width: 6vw;
-  height: 6vw;
-  padding: 10%;
-  border: 10px solid blue;
-  border-radius: 20%;
+  width: 15vw;
+  height: 15vw;
+  padding: 1%;
   text-align: center;
   font-weight: bold;
   margin-top: 10vh;
   margin-bottom: 10vh;
+}
+#diceShow{
+  width: 100%;
+  height:100%;
+  border: 1px solid blue;
+  border-radius: 20%;
 }
