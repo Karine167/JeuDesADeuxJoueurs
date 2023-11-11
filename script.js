@@ -47,6 +47,7 @@ class Player{
 let player1 = new Player(1,true);
 let player2 = new Player(2,false);
 let resultDe = new Number();
+let gameIn = false;
 
 //Intit tempo
 const initialTempo = ()=>{
@@ -84,36 +85,43 @@ const gameTour = ()=>{
         initialTempo();
         affichePlayer();
       }else{
-        if (player1.mustPlay){
-          console.log(player1.tempo, resultDe)
-          player1.tempo = player1.tempo + resultDe;
-          console.log(player1.tempo);
-          player1.afficheTempo();
-        }else{
-          player2.tempo = player2.tempo + resultDe;
-          player2.afficheTempo();
+        if (gameIn){
+          if (player1.mustPlay){
+            console.log(player1.tempo, resultDe)
+            player1.tempo = player1.tempo + resultDe;
+            console.log(player1.tempo);
+            player1.afficheTempo();
+          }else{
+            player2.tempo = player2.tempo + resultDe;
+            player2.afficheTempo();
+          }
         }
       }
     });
     hold.addEventListener('click', ()=>{
-      if (player1.mustPlay){
-        player1.total = player1.total + player1.tempo;
-        player1.afficheTotal();
-      } else {
-        player2.total = player2.total + player2.tempo;
-        player2.afficheTotal();
+      if (gameIn){
+        if (player1.mustPlay){
+          player1.total = player1.total + player1.tempo;
+          player1.afficheTotal();
+        } else {
+          player2.total = player2.total + player2.tempo;
+          player2.afficheTotal();
+        }
+        initialTempo();
+        changePlayer();
+        afficheWinner();
       }
-      initialTempo();
-      changePlayer();
-      afficheWinner();
     });
 } 
 // begin new game
 newGame.addEventListener('click', ()=>{
-  // Init game
-  initialTempo();
-  initialTotal();
-  affichePlayer();
+  if (!gameIn){
+    // Init game
+    initialTempo();
+    initialTotal();
+    affichePlayer();
+    gameIn = true;
+  }
 });
 
 //show who play
@@ -131,14 +139,12 @@ const afficheWinner = () => {
   if (player1.total>=100){
     player1.afficheMessage("You Won !! Congratulations !");
     player2.afficheMessage("You lose !! Sorry !");
-    removeEventListener('click', hold);
-    removeEventListener('click', rollDice);
+    gameIn = false;
   }else{
     if (player2.total>=100){
     player2.afficheMessage("You Won !! Congratulations !");
     player1.afficheMessage("You lose !! Sorry !");
-    removeEventListener('click', hold);
-    removeEventListener('click', rollDice);
+    gameIn = false;
     } else {
       affichePlayer();
     }
