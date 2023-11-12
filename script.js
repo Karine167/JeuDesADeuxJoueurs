@@ -141,7 +141,7 @@ class Player{
     this.idtempo.textContent = this.tempo;
   }
   afficheMessage(message){
-    this.indicator.textContent = message;
+    this.indicator.innerHTML = message;
   }
   effaceMessage(){
     this.indicator.textContent = "O";
@@ -182,14 +182,14 @@ const changePlayer = ()=>{
 // Création d'une fonction pour gérer un tour de jeu
 const gameTour = ()=>{
     rollDice.addEventListener('click', ()=>{
-      resultDe = Math.floor(Math.random() * 6)+1;
-      afficheDe(resultDe);
-      if (resultDe === 1) {
-        changePlayer();
-        initialTempo();
-        affichePlayer();
-      }else{
-        if (gameIn){
+      if (gameIn){
+        resultDe = Math.floor(Math.random() * 6)+1;
+        afficheDe(resultDe);
+        if (resultDe === 1) {
+          changePlayer();
+          initialTempo();
+          affichePlayer();
+        }else{
           if (player1.mustPlay){
             console.log(player1.tempo, resultDe)
             player1.tempo = player1.tempo + resultDe;
@@ -241,13 +241,13 @@ const affichePlayer = () => {
 //show who win
 const afficheWinner = () => {
   if (player1.total>=100){
-    player1.afficheMessage("You Won !! Congratulations !");
-    player2.afficheMessage("You lose !! Sorry !");
+    player1.afficheMessage(`You Won&nbsp;!! Congratulations&nbsp;!`);
+    player2.afficheMessage(`You lose&nbsp;!! Sorry&nbsp;!`);
     gameIn = false;
   }else{
     if (player2.total>=100){
-    player2.afficheMessage("You Won !! Congratulations !");
-    player1.afficheMessage("You lose !! Sorry !");
+      player2.afficheMessage(`You Won&nbsp;!! Congratulations&nbsp;!`);
+      player1.afficheMessage(`You lose&nbsp;!! Sorry&nbsp;!`);
     gameIn = false;
     } else {
       affichePlayer();
