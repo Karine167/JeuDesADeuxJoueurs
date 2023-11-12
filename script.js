@@ -144,7 +144,7 @@ class Player{
     this.indicator.innerHTML = message;
   }
   effaceMessage(){
-    this.indicator.textContent = "O";
+    this.indicator.textContent = "";
   }
 }
 // Init game
@@ -241,12 +241,12 @@ const affichePlayer = () => {
 //show who win
 const afficheWinner = () => {
   if (player1.total>=100){
-    player1.afficheMessage(`You Won&nbsp;!! Congratulations&nbsp;!`);
+    player1.afficheMessage(`You Won&nbsp;!! Well done&nbsp;!`);
     player2.afficheMessage(`You lose&nbsp;!! Sorry&nbsp;!`);
     gameIn = false;
   }else{
     if (player2.total>=100){
-      player2.afficheMessage(`You Won&nbsp;!! Congratulations&nbsp;!`);
+      player2.afficheMessage(`You Won&nbsp;!! Well done&nbsp;!`);
       player1.afficheMessage(`You lose&nbsp;!! Sorry&nbsp;!`);
     gameIn = false;
     } else {
