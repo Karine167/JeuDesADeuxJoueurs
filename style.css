@@ -38,6 +38,7 @@ body{
   width: 30vw;
   margin-top: 20%;
   padding : 2%;
+  margin-left: 2%;
   text-align: center;
   color:blue;
 }
@@ -56,10 +57,10 @@ body{
   padding: 2%;
   margin-top: 15vh;
   font-size: 1.5em;
+  justify-content: center;
 }
 .control{
   width: 20vw; 
-  display:block;
   justify-content: center;
 }
 button{
@@ -69,7 +70,7 @@ button{
   margin-top: 10%;
   padding:10%;
   width:90%;
-  font-size: larger;
+  font-size: 1em;
 }
 button:hover{
   background:  rgb(69, 69, 80);
@@ -94,24 +95,24 @@ button:hover{
 /* style des tablettes*/
 @media screen and (min-width:700px){
   body{
-    font-size : 1.5em;
+    font-size : 1.2em;
     width: 97vw;
-    height: 98vh;
+    height: 97vh;
   }
   .Joueur1, .Joueur2{
-    margin-top: 15%;
+    margin-top: 3%;
   }
   .indicator1, .indicator2{
-    font-size: 1.5em;
-    height: 12vh;
+    font-size: 1.1em;
+    height: 5vh;
   }
 }
 /*style des desktops*/
 @media screen and (min-width:1000px){
   body{
-    font-size : 1.8em;
-    width: 92vw;
-    height: 90vh;
+    font-size : 1.5em;
+    width: 94vw;
+    height: 89vh;
   }
   .Joueur1, .Joueur2{
     margin-top: 2%;
@@ -121,13 +122,42 @@ button:hover{
     height: 5vh;
   }
   .temp{
-    margin-top: 5vh;
+    margin-top: 4vh;
+    padding: 1%;
+    font-size: 1.2em;
   }
   #de{
     margin-top: 5vh;
     margin-bottom: 5vh;
+    width: 15vw;
+    height: 15vw;
   }
   #total1, #total2{
     font-size: 2.2em;
   } 
+}
+
+/*style des écrans extra-larges*/
+@media screen and (min-width:2000px){
+  body{
+    font-size : 3em;
+    width: 92vw;
+    height: 90vh;
+    margin-top: 2%;
+    margin-left: 2%;
+  }
+  .temp{
+    margin-top: 7vh;
+    font-size: 2.5em;
+  }
+  .indicator1, .indicator2{
+    font-size: 2.5em;
+  }
+  #total1, #total2{
+    font-size: 3em;
+  } 
+  #de{
+    width: 15vw;
+    height: 15vw;
+  }
 }

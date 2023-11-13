@@ -191,9 +191,7 @@ const gameTour = ()=>{
           affichePlayer();
         }else{
           if (player1.mustPlay){
-            console.log(player1.tempo, resultDe)
             player1.tempo = player1.tempo + resultDe;
-            console.log(player1.tempo);
             player1.afficheTempo();
           }else{
             player2.tempo = player2.tempo + resultDe;
@@ -242,12 +240,12 @@ const affichePlayer = () => {
 const afficheWinner = () => {
   if (player1.total>=100){
     player1.afficheMessage(`You Won&nbsp;!! Well done&nbsp;!`);
-    player2.afficheMessage(`You lose&nbsp;!! Sorry&nbsp;!`);
+    player2.afficheMessage(`You lose&nbsp;!! Very sorry&nbsp;!`);
     gameIn = false;
   }else{
     if (player2.total>=100){
       player2.afficheMessage(`You Won&nbsp;!! Well done&nbsp;!`);
-      player1.afficheMessage(`You lose&nbsp;!! Sorry&nbsp;!`);
+      player1.afficheMessage(`You lose&nbsp;!! Verry sorry&nbsp;!`);
     gameIn = false;
     } else {
       affichePlayer();
