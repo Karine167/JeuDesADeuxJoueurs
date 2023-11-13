@@ -4,14 +4,14 @@ body{
   justify-content: center;
   border: 10px solid brown;
   padding: 2%;
-  margin: 0; 
-  width: 90vw;
-  height: 95vh;
+  margin: 1%; 
+  width: 85vw;
+  height: 90vh;
   font-size: 1em;
 }
 #total1, #total2{
   font-weight: 700;
-  font-size: 3em;
+  font-size: 2.3em;
 }
 #total1{
   color: red;
@@ -21,14 +21,14 @@ body{
 }
 .Joueur1{
   width: 30vw;
-  margin-top: 20%;
+  margin-top: 10%;
   text-align: center;
   padding : 2%;
   color:red;
 }
 #indicator1{
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.4em;
   color:red;
   display: block;
   text-align: right;
@@ -36,16 +36,15 @@ body{
 }
 .Joueur2{
   width: 30vw;
-  margin-top: 20%;
+  margin-top: 10%;
   padding : 2%;
-  margin-left: 2%;
   text-align: center;
   color:blue;
 }
 #indicator2{
   font-weight: bold;
   color:blue;
-  font-size: 1.5em;
+  font-size: 1.4em;
   display: block;
   text-align: left;
   height: 15vh;
@@ -56,10 +55,13 @@ body{
   text-align: center;
   padding: 2%;
   margin-top: 15vh;
-  font-size: 1.5em;
+  font-size: 1.4em;
   justify-content: center;
 }
 .control{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 20vw; 
   justify-content: center;
 }
@@ -78,14 +80,16 @@ button:hover{
   border : 2px solid black;
 }
 #de{
-  width: 20vw;
-  height: 20vw;
+  width: 17vw;
+  height: 17vw;
   padding: 1%;
+  display: flex;
   text-align: center;
   font-weight: bold;
   margin-top: 20vh;
   margin-bottom: 20vh;
 }
+
 #diceShow{
   width: 100%;
   height:100%;
@@ -96,23 +100,70 @@ button:hover{
 @media screen and (min-width:700px){
   body{
     font-size : 1.2em;
-    width: 97vw;
-    height: 97vh;
+    width: 90vw;
+    height: 90vh;
   }
   .Joueur1, .Joueur2{
-    margin-top: 3%;
+    margin-top: 1%;
   }
   .indicator1, .indicator2{
     font-size: 1.1em;
-    height: 5vh;
   }
+  #de{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    width: 15vw;
+    height: 15vw;
+  }
+  canvas{
+    margin-left: 10%;
+  }
+}
+
+/*style mobile en position paysage*/
+@media screen and (orientation:landscape){
+  body{ 
+    font-size: 1em;
+    width: 88vw;
+    height: 85vh;
+  }
+  .Joueur1, .Joueur2{
+    margin-top: 0;
+  }
+  .indicator1, .indicator2{
+    font-size: 1em;
+    height: 3vh;
+  }
+  .temp{
+    margin-top: 1vh;
+    padding: 1%;
+    font-size: 1em;
+  }
+  #de{
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    width: 18vh;
+    height: 18vh;
+  }
+  canvas{
+    margin-left: 1%;
+  }
+  button{
+    width: 50%;
+    margin-top: 10%;
+    padding:5%;
+    font-size: 1em;
+  }
+  #total1, #total2{
+    font-size: 1.7em;
+  } 
 }
 /*style des desktops*/
 @media screen and (min-width:1000px){
   body{
     font-size : 1.5em;
-    width: 94vw;
-    height: 89vh;
+    width: 88vw;
+    height: 87vh;
   }
   .Joueur1, .Joueur2{
     margin-top: 2%;
@@ -127,37 +178,50 @@ button:hover{
     font-size: 1.2em;
   }
   #de{
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    width: 15vw;
-    height: 15vw;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+    width: 13vw;
+    height: 13vw;
+  }
+  canvas{
+    margin-left: 5%;
   }
   #total1, #total2{
-    font-size: 2.2em;
+    font-size: 2em;
   } 
 }
 
 /*style des écrans extra-larges*/
 @media screen and (min-width:2000px){
   body{
-    font-size : 3em;
-    width: 92vw;
-    height: 90vh;
-    margin-top: 2%;
-    margin-left: 2%;
+    font-size : 2.5em;
+    border: 15px solid brown;
+    width: 88vw;
+    height: 85vh;
+    margin-top: 0%;
+  }
+  .Joueur1, .Joueur2{
+    margin-top: 0;
   }
   .temp{
-    margin-top: 7vh;
-    font-size: 2.5em;
+    margin-top: 0;
+    font-size: 1.3em;
+    padding: 1%;
   }
   .indicator1, .indicator2{
-    font-size: 2.5em;
+    font-size: 2em;
+    height: 3vh;
   }
   #total1, #total2{
-    font-size: 3em;
+    font-size: 2em;
   } 
   #de{
-    width: 15vw;
-    height: 15vw;
+    width: 10vw;
+    height: 10vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+  canvas{
+    margin-left: 5%;
   }
 }
