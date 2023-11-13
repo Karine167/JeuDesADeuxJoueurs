@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <title>Jeu de dé</title>
-  <meta name="description" content="petit jeu de hasard à deux joueurs."/>
+  <meta name="description" content="Un petit jeu de hasard à deux joueurs."/>
 </head>
 <body>
+  <!--Player 1 section -->
   <div class="Joueur1">
     <h2>PLAYER 1 </h2>
     <span id="indicator1"></span>
@@ -22,6 +23,7 @@
       <p id="tempo1"></p>
     </div>
   </div>
+  <!-- btns and die-->
   <div class="control">
     <button type="button" id="rules"><span class="material-symbols-outlined">
         developer_guide</span> Rules</button>
@@ -31,10 +33,11 @@
       <canvas id="diceShow" title="Result after roll dice"></canvas>
     </p>
     <button type="button" id="rollDice"><span class="material-symbols-outlined">
-      sync</span> Roll Dice</button>
+      cycle</span> Roll Dice</button>
     <button type="button" id="hold"><span class="material-symbols-outlined">
       system_update_alt</span> Hold</button>
   </div>
+  <!--Player 2 section -->
   <div class="Joueur2">
     <h2>PLAYER 2 </h2>
     <span id="indicator2"></span>

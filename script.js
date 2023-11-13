@@ -189,7 +189,7 @@ const changePlayer = ()=>{
     player1.mustPlay = true;
   }
 }
-// Création d'une fonction pour gérer un tour de jeu
+// function for a game's turn
 const gameTour = ()=>{
     rollDice.addEventListener('click', ()=>{
       if (gameIn){
