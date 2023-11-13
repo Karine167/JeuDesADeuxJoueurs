@@ -2,6 +2,9 @@
 const rollDice = document.getElementById('rollDice');
 const hold = document.getElementById('hold');
 const newGame = document.getElementById('newGame');
+const rules = document.getElementById('rules');
+const myModal = document.getElementById('myModal');
+const closeRules = document.getElementById('closeRules');
 const de = document.getElementById('de');
 const indicator1 = document.getElementById('indicator1');
 const indicator2 = document.getElementById('indicator2');
@@ -13,6 +16,13 @@ const canvas = document.getElementById('diceShow');
 const ctx = canvas.getContext('2d');
 let canvasWidth = ctx.canvas.width;
 let canvasHeight = ctx.canvas.height;
+// Rules show
+rules.addEventListener ('click', ()=>{
+  myModal.style.display = "block";
+  closeRules.addEventListener('click', ()=>{
+    myModal.style.display ="none";
+  })
+})
 // Dice Show
 const afficheDe = (result)=>{
   switch (result) {

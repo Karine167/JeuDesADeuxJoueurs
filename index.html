@@ -6,8 +6,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <title>Jeu de dé</title>
+  <meta name="description" content="petit jeu de hasard à deux joueurs."/>
 </head>
 <body>
   <div class="Joueur1">
@@ -20,12 +23,17 @@
     </div>
   </div>
   <div class="control">
-    <button type="button" id="newGame">New Game</button>
+    <button type="button" id="rules"><span class="material-symbols-outlined">
+        developer_guide</span> Rules</button>
+    <button type="button" id="newGame"><span class="material-symbols-outlined">
+      add_circle</span> New Game</button>
     <p id="de">
       <canvas id="diceShow" title="Result after roll dice"></canvas>
     </p>
-    <button type="button" id="rollDice">Roll Dice</button>
-    <button type="button" id="hold">Hold</button>
+    <button type="button" id="rollDice"><span class="material-symbols-outlined">
+      sync</span> Roll Dice</button>
+    <button type="button" id="hold"><span class="material-symbols-outlined">
+      system_update_alt</span> Hold</button>
   </div>
   <div class="Joueur2">
     <h2>PLAYER 2 </h2>
@@ -36,6 +44,62 @@
       <p id="tempo2"></p>
     </div>
   </div>
+  <!-- The Modal for the rules-->
+  <div id="myModal" class="modal"  >
+    <div class="modal-dialog"   >
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Rules :</h1>
+          <button type="button" class="btn-close" id="closeRules" data-bs-dismiss="modal" 
+          aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <strong>In english :</strong>
+          <p>The game includes 2 players on a single screen.
+            <br/>
+            Each player has a temporary score (CURRENT) and an overall score.
+            Each turn, the player has his CURRENT score initialized to 0 and can roll a die
+            (using the “Roll Dice” button) as many times as he wants.
+            The result of a roll is added to the CURRENT.
+            During his turn, the player can decide at any time to:
+            <ul>
+              <li>Click on the “Hold” option, which allows you to send the CURRENT points
+                towards the OVERALL score. It will then be the other player’s turn.</li>
+              <li>Roll the die.</li>
+            </ul>
+            Moreover :
+            <ul>
+              <li>If a player rolls a 1, their CURRENT score is lost and it's the end
+                of his turn.</li>
+              <li>The first player to reach 100 points overall wins the game.</li>
+            </ul>
+          </p>
+          <hr>
+          <strong>Règles du jeu en français :</strong>
+          <p>Le jeu comprend 2 joueurs sur un seul et même écran.
+            <br/>
+            Chaque joueur possède un score temporaire (CURRENT) et un score global. 
+            À chaque tour, le joueur a son score CURRENT initialisé à 0 et peut lancer un dé 
+            (à l'aide du bouton "Roll Dice") autant de fois qu'il le souhaite. 
+            Le résultat d’un lancer est ajouté au CURRENT.
+            Lors de son tour, le joueur peut décider à tout moment de: 
+            <ul>
+              <li>Cliquer sur l’option “Hold”, qui permet d’envoyer les points du CURRENT 
+                vers le score GLOBAL. Ce sera alors le tour de l’autre joueur.</li>
+              <li>Lancer le dé.</li>
+            </ul>
+            De plus : 
+            <ul>
+              <li>Si un joueur obtient un 1, son score CURRENT est perdu et c’est la fin
+                  de son tour.</li>
+              <li>Le premier joueur qui atteint les 100 points sur global gagne le jeu.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
