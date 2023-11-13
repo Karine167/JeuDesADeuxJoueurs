@@ -1,12 +1,12 @@
 body{
-  background: gainsboro;
+  background:linear-gradient(90deg,rgb(205, 181, 181) 50%, rgb(219, 219, 219,1) 50%);
   display: inline-flex;
   justify-content: center;
   border: 10px solid brown;
   padding: 2%;
-  margin: 1%; 
-  width: 85vw;
-  height: 90vh;
+  width:100vw;
+  height:100vh;
+
   font-size: 1em;
   font-family: 'Lato', sans-serif;
 }
@@ -19,12 +19,13 @@ body{
 }
 #myModal{
   display: none;
-  font-size: 0.7em;
+  font-size: 0.9em;
 }
 
 #total1, #total2{
   font-weight: 700;
   font-size: 2.3em;
+  padding-top: 20%;
 }
 #total1{
   color: red;
@@ -113,8 +114,7 @@ button:hover{
 @media screen and (max-width:300px){
   body{
     font-size : 0.8em;
-    width: 90vw;
-    height: 90vh;
+    
   }
   .Joueur1, .Joueur2{
     margin-top: 1%;
@@ -133,8 +133,7 @@ button:hover{
 @media screen and (min-width:700px){
   body{
     font-size : 1.2em;
-    width: 90vw;
-    height: 90vh;
+    
   }
   .Joueur1, .Joueur2{
     margin-top: 1%;
@@ -149,7 +148,7 @@ button:hover{
     height: 15vw;
   }
   canvas{
-    margin-left: 10%;
+    margin-left: 5%;
   }
 }
 
@@ -157,8 +156,7 @@ button:hover{
 @media screen and (orientation:landscape){
   body{ 
     font-size: 1em;
-    width: 88vw;
-    height: 85vh;
+    
   }
   .Joueur1, .Joueur2{
     margin-top: 0;
@@ -195,8 +193,7 @@ button:hover{
 @media screen and (min-width:1000px){
   body{
     font-size : 1.5em;
-    width: 88vw;
-    height: 87vh;
+   
   }
   .Joueur1, .Joueur2{
     margin-top: 2%;
@@ -229,8 +226,7 @@ button:hover{
   body{
     font-size : 2.5em;
     border: 15px solid brown;
-    width: 88vw;
-    height: 85vh;
+  
     margin-top: 0%;
   }
   .Joueur1, .Joueur2{
