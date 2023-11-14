@@ -239,23 +239,23 @@ newGame.addEventListener('click', ()=>{
 //show who play
 const affichePlayer = () => {
   if (player1.mustPlay){
-    player1.afficheMessage("You have to play");
+    player1.afficheMessage("You play");
     player2.effaceMessage();
   }else{
-    player2.afficheMessage("You have to play");
+    player2.afficheMessage("You play");
     player1.effaceMessage();
   }
 }
 //show who win
 const afficheWinner = () => {
   if (player1.total>=100){
-    player1.afficheMessage(`You Won&nbsp;!! Well done&nbsp;!`);
-    player2.afficheMessage(`You lose&nbsp;!! Very sorry&nbsp;!`);
+    player1.afficheMessage(`You Won&nbsp;!!`);
+    player2.afficheMessage(`You lose&nbsp;!!`);
     gameIn = false;
   }else{
     if (player2.total>=100){
-      player2.afficheMessage(`You Won&nbsp;!! Well done&nbsp;!`);
-      player1.afficheMessage(`You lose&nbsp;!! Verry sorry&nbsp;!`);
+      player2.afficheMessage(`You Won&nbsp;!!`);
+      player1.afficheMessage(`You lose&nbsp;!!`);
     gameIn = false;
     } else {
       affichePlayer();
