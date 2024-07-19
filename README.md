@@ -1,1 +1,2 @@
-# ECF_entrain_dynamiser_sites_avec_JS
+*** Jeu de dés à deux joueurs ***
+La gestion des joueurs est effectuée en javascript
